@@ -39,6 +39,7 @@
       {assign var=today value=""}
       {assign var=weekend value=""}
       {assign var=gray value=""}
+      {assign var=events value="events"}
 
       {if isset($day.today)}
         {assign var=today value="today"}
@@ -52,26 +53,60 @@
         {assign var=gray value="gray"}
       {/if}
 
+      {if isset($day.events)}
+        {assign var=events value="events"}
+      {/if}
+
+
 
       <div class="col p-0" style=" width: calc(100% / 7)">
-        <div class="h-100 w-100 justify-content-center align-items-center d-flex day-block {$weekend} {$gray}" data-date="{$day.date}">
-          <span class="{$today}">{$day.day}</span>
+        <div class="h-100 w-100 justify-content-center align-items-center d-flex day-block {$weekend} {$gray}"
+          data-date="{$day.date}">
+          <span class="{$today}">{$day.day}
+            {* {if isset($day.events)}
+            {assign var=events value="events"}
+            <div class="h-100 w-100 justify-content-center align-items-center d-flex">
+            <div class="dot" id="dots-{$day.date}" onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div> 
+            </div>
+          {/if} *}
+          </span>
+          <div class="row" style="position: absolute;margin-top: 30px;">
+            {if isset($day.events)}
+              {assign var=events value="events"}
+              <div class="h-100 w-100 justify-content-center align-items-center d-flex">
+                <div class="dot" id="dots-{$day.date}"
+                  onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div>
+              </div>
+              {if isset($day.today)}
+                {assign var=events value="events"}
+                <div class="h-100 w-100 justify-content-center align-items-center d-none">
+                  <div class="dot" id="dots-{$day.date}"
+                    onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div>
+                </div>
+              {/if}
+            {/if}
+
+          </div>
+
         </div>
+
+
       </div>
 
     {/foreach}
   </div>
-  <div id="eventsWrap" style="border: 1px solid rgba(0, 0, 0, .125);">
-    {foreach from=$WeekCalendar.days item=day}
-      {if isset($day.events)}
-        <div id="events-{$day.date}" class="d-none dayEvents">
-          {foreach from=$day.events item=event}
-            <div>
-              {$event.title}
-            </div>
-          {/foreach}
-        </div>
-      {/if}
-    {/foreach}
-  </div>
+</div>
+<div id="eventsWrap" style="border: 1px solid rgba(0, 0, 0, .125);">
+  {foreach from=$WeekCalendar.days item=day}
+    {if isset($day.events)}
+      <div id="events-{$day.date}" class="d-none dayEvents">
+        {foreach from=$day.events item=event}
+          <div>
+            {$event.title}
+          </div>
+        {/foreach}
+      </div>
+    {/if}
+  {/foreach}
+</div>
 </div>

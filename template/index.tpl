@@ -15,7 +15,7 @@
 
 <body>
 
-  <div class="container mt-5">
+  <div class="container mt-5 mb-5">
 
     <div class="row" style="padding: 5px;background-color: rgba(0, 0, 0, .03);">
       <div class="switches-container">

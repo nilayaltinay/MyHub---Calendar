@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-04-19 07:52:32
+/* Smarty version 4.3.1, created on 2023-05-03 08:45:17
   from '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_643f81a0a55326_33340252',
+  'unifunc' => 'content_645202fd2db796_55726831',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4e5f2587d2148abb508b70b62403c44035a161c7' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/index.tpl',
-      1 => 1681883550,
+      1 => 1683096315,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:weekView.tpl' => 1,
   ),
 ),false)) {
-function content_643f81a0a55326_33340252 (Smarty_Internal_Template $_smarty_tpl) {
+function content_645202fd2db796_55726831 (Smarty_Internal_Template $_smarty_tpl) {
 ?><!doctype html>
 <html lang="en">
 
@@ -39,7 +39,7 @@ function content_643f81a0a55326_33340252 (Smarty_Internal_Template $_smarty_tpl)
 
 <body>
 
-  <div class="container mt-5">
+  <div class="container mt-5 mb-5">
 
     <div class="row" style="padding: 5px;background-color: rgba(0, 0, 0, .03);">
       <div class="switches-container">

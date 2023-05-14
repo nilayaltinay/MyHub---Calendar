@@ -7,6 +7,7 @@ const steps = document.querySelectorAll('.step');
 const todayButton = document.getElementById('todayButton');
 const eventsWrap = document.getElementById('eventsWrap');
 const dayBlocks= document.querySelectorAll('.day-block')
+const dot = document.querySelectorAll('.dot')
 
 console.log(todayButton);
 
@@ -39,6 +40,7 @@ const switchView = (e) => {
         const steps = wrapper.querySelectorAll('.step');
         const todayButton = document.getElementById('todayButton');
         const eventsWrap = document.getElementById('eventsWrap');
+        const dot = document.querySelectorAll('.dot');
 
 
         for (let i = 0; i < steps.length; i++) {
@@ -51,6 +53,9 @@ const switchView = (e) => {
 }
 const showEvents = (e) => {
   console.log(e.target.dataset.date);
+
+  const dotBlocks = eventsWrap.querySelectorAll(".dayEvents")
+
   const eventsBlocks = eventsWrap.querySelectorAll(".dayEvents")
   const blocktoshow = document.getElementById(`events-${e.target.dataset.date}`)
   if (eventsBlocks.length > 0){
@@ -62,6 +67,7 @@ const showEvents = (e) => {
     blocktoshow.classList.remove("d-none")
   }
 }
+
 switchToggle.addEventListener('click', (e) => switchView(e));
 for (let i = 0; i < steps.length; i++) {
   steps[i].addEventListener('click', (e) => switchView(e));
