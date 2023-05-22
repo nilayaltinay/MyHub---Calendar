@@ -1,5 +1,5 @@
 <div id="calendarView" class="">
-  <div class="row" style="background-color: rgba(0, 0, 0, .03);border: 1px solid rgba(0, 0, 0, .125);">
+  <div class="row" style="background-color: rgba(0, 0, 0, .03);border-top: 1px solid rgba(0, 0, 0, .125); border-bottom: 1px solid rgba(0, 0, 0, .125);">
     <div class="col text-left p-2 ms-3" id="month">
       <h4>{$WeekCalendar.monthName} {$WeekCalendar.year}</h4>
     </div>
@@ -33,7 +33,7 @@
     <div class="col text-center weekend py-3">Su</div>
 
   </div>
-  <div class="row">
+  <div class="row border-bottom">
 
     {foreach from=$WeekCalendar.days item=day}
       {assign var=today value=""}
@@ -62,28 +62,26 @@
       <div class="col p-0" style=" width: calc(100% / 7)">
         <div class="h-100 w-100 justify-content-center align-items-center d-flex day-block {$weekend} {$gray}"
           data-date="{$day.date}">
-          <span class="{$today}">{$day.day}
-            {* {if isset($day.events)}
-            {assign var=events value="events"}
-            <div class="h-100 w-100 justify-content-center align-items-center d-flex">
-            <div class="dot" id="dots-{$day.date}" onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div> 
-            </div>
-          {/if} *}
-          </span>
+          <span class="{$today}">{$day.day}</span>
           <div class="row" style="position: absolute;margin-top: 30px;">
-            {if isset($day.events)}
+            {if isset($day.events) && (!isset($day.today))}
               {assign var=events value="events"}
               <div class="h-100 w-100 justify-content-center align-items-center d-flex">
                 <div class="dot" id="dots-{$day.date}"
-                  onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div>
+                onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div>
+   
               </div>
-              {if isset($day.today)}
+
+
+              {* {if isset($day.today)}
                 {assign var=events value="events"}
                 <div class="h-100 w-100 justify-content-center align-items-center d-none">
                   <div class="dot" id="dots-{$day.date}"
+                  onclick="this.style.background-color = 'rgb(167 167 167 / 50%)' ;this.style.height = '35px'; this.style.width = '35px'; this.style.margin-top='-30px';"></div>
                     onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div>
                 </div>
-              {/if}
+              {/if} *}
+
             {/if}
 
           </div>
@@ -96,14 +94,25 @@
     {/foreach}
   </div>
 </div>
-<div id="eventsWrap" style="border: 1px solid rgba(0, 0, 0, .125);">
+<div id="eventsWrap" style="border-top: 1px solid rgba(0, 0, 0, .125);    margin-left: -12px;
+margin-right: -12px;">
   {foreach from=$WeekCalendar.days item=day}
     {if isset($day.events)}
       <div id="events-{$day.date}" class="d-none dayEvents">
         {foreach from=$day.events item=event}
-          <div>
-            {$event.title}
+          <div class="row" style="margin-top: 1rem;">
+            <div class="time col-1" >
+              <div class="start">{$event.start}</div>
+              <div class="end">{$event.end}</div>
+            </div>
+            <div class="col-2" style="border-left: 2px solid #ff5000
+            ;">
+              <div class="eventTitle">{$event.title}</div>
+              <div class="eventDescription">{$event.description}</div>
+            </div>
+
           </div>
+          <hr>
         {/foreach}
       </div>
     {/if}

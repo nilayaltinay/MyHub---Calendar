@@ -1,5 +1,5 @@
 <div id="calendarView" class="">
-    <div class="row" style="background-color: rgba(0, 0, 0, .03);border: 1px solid rgba(0, 0, 0, .125);">
+    <div class="row" style="background-color: rgba(0, 0, 0, .03);border-top: 1px solid rgba(0, 0, 0, .125); border-bottom: 1px solid rgba(0, 0, 0, .125);">
         <div class="col text-left p-2 ms-3">
             <h4>{$MonthCalendar.monthName} {$MonthCalendar.year}</h4>
         </div>
@@ -74,7 +74,7 @@
 
     </div>
 
-    <div class="row" style="background-color: rgba(0, 0, 0, .03); border: 1px solid rgba(0, 0, 0, .125);">
+    <div class="row" style="background-color: rgba(0, 0, 0, .03); border-top: 1px solid rgba(0, 0, 0, .125); border-bottom: 1px solid rgba(0, 0, 0, .125);">
         <div class="col text-center p-2 ms-3">
             <p style="font-size: x-small; margin-top: revert;">Times shown are local times based on campus location, or
                 Sydney time if class

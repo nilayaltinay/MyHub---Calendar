@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-02 13:13:30
+/* Smarty version 4.3.1, created on 2023-05-22 08:49:37
   from '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/monthView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6450f05a4f1b57_30442439',
+  'unifunc' => 'content_646b1081a739b7_14005954',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf34a8eed9dbd479f384bd66be069476b221d149' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/monthView.tpl',
-      1 => 1683025949,
+      1 => 1684738174,
       2 => 'file',
     ),
   ),
@@ -20,9 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6450f05a4f1b57_30442439 (Smarty_Internal_Template $_smarty_tpl) {
+function content_646b1081a739b7_14005954 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="calendarView" class="">
-    <div class="row" style="background-color: rgba(0, 0, 0, .03);border: 1px solid rgba(0, 0, 0, .125);">
+    <div class="row" style="background-color: rgba(0, 0, 0, .03);border-top: 1px solid rgba(0, 0, 0, .125); border-bottom: 1px solid rgba(0, 0, 0, .125);">
         <div class="col text-left p-2 ms-3">
             <h4><?php echo $_smarty_tpl->tpl_vars['MonthCalendar']->value['monthName'];?>
  <?php echo $_smarty_tpl->tpl_vars['MonthCalendar']->value['year'];?>
@@ -112,7 +112,7 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
     </div>
 
-    <div class="row" style="background-color: rgba(0, 0, 0, .03); border: 1px solid rgba(0, 0, 0, .125);">
+    <div class="row" style="background-color: rgba(0, 0, 0, .03); border-top: 1px solid rgba(0, 0, 0, .125); border-bottom: 1px solid rgba(0, 0, 0, .125);">
         <div class="col text-center p-2 ms-3">
             <p style="font-size: x-small; margin-top: revert;">Times shown are local times based on campus location, or
                 Sydney time if class

@@ -15,6 +15,7 @@ body {
 
 .container {
   border: 1px solid rgba(0, 0, 0, .125);
+  border-bottom: none;
 }
 
 .switches-container {
@@ -113,6 +114,7 @@ body {
   text-align: center;
   aspect-ratio: 1/1;
 }
+
 @media (max-width:576px) {
   .today {
     width: 22px;
@@ -145,14 +147,22 @@ body {
   left: 10px;
   top: 10px;
   display: inline-block;
-   
 }
+
+.dot::after {
+  background-color: rgb(167 167 167 / 50%);
+  height: 35px;
+  width: 35px;
+  margin-top: -35px;
+}
+
 @media (max-width:576px) {
   .dot {
     width: 5px;
     height: 5px;
   }
 }
+
 /* #month{
   padding: 2rem;
   margin: 3rem;
@@ -162,3 +172,15 @@ body {
     font-size: 12px;
   }
 } */
+.time {
+  text-align: end;
+  display: inline-table;
+  align-self: center;
+}
+
+@media (max-width:992px) {
+  .time {
+    /* line-height: 22px; */
+    margin-left: 30px;
+  }
+}
