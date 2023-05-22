@@ -1,6 +1,6 @@
 <div id="calendarView" class="">
   <div class="row" style="background-color: rgba(0, 0, 0, .03);border: 1px solid rgba(0, 0, 0, .125);">
-    <div class="col text-left p-2 ms-3">
+    <div class="col text-left p-2 ms-3" id="month">
       <h4>{$WeekCalendar.monthName} {$WeekCalendar.year}</h4>
     </div>
     <div class="col p-2 ms-2">

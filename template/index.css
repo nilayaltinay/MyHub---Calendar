@@ -153,3 +153,12 @@ body {
     height: 5px;
   }
 }
+/* #month{
+  padding: 2rem;
+  margin: 3rem;
+}
+@media (max-width:576px) {
+  #month {
+    font-size: 12px;
+  }
+} */

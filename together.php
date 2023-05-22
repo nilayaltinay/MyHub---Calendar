@@ -16,15 +16,15 @@ if (isset($_GET['date'])) {
 // echo "test";
 
 $events = [
-    "2023-05-09" => [
+    "2023-05-24" => [
         ["title" => "event1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
         ["title" => "event2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
     ],
-    "2023-05-10" => [
+    "2023-05-25" => [
         ["title" => "event1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
         ["title" => "event2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
     ],
-    "2023-05-17" => [
+    "2023-05-23" => [
         ["title" => "event1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
         ["title" => "event2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
     ]

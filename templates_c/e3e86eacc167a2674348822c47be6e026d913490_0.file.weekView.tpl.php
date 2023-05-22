@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-10 08:28:04
+/* Smarty version 4.3.1, created on 2023-05-15 02:56:43
   from '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/weekView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_645b3974115375_24118790',
+  'unifunc' => 'content_6461834bc01f79_47913628',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e3e86eacc167a2674348822c47be6e026d913490' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/weekView.tpl',
-      1 => 1683700081,
+      1 => 1684112201,
       2 => 'file',
     ),
   ),
@@ -20,10 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_645b3974115375_24118790 (Smarty_Internal_Template $_smarty_tpl) {
+function content_6461834bc01f79_47913628 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="calendarView" class="">
   <div class="row" style="background-color: rgba(0, 0, 0, .03);border: 1px solid rgba(0, 0, 0, .125);">
-    <div class="col text-left p-2 ms-3">
+    <div class="col text-left p-2 ms-3" id="month">
       <h4><?php echo $_smarty_tpl->tpl_vars['WeekCalendar']->value['monthName'];?>
  <?php echo $_smarty_tpl->tpl_vars['WeekCalendar']->value['year'];?>
 </h4>
