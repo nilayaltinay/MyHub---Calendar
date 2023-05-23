@@ -1,12 +1,14 @@
 <div id="calendarView" class="">
-  <div class="row" style="background-color: rgba(0, 0, 0, .03);border-top: 1px solid rgba(0, 0, 0, .125); border-bottom: 1px solid rgba(0, 0, 0, .125);">
+  <div class="row"
+    style="background-color: rgba(0, 0, 0, .03);border-top: 1px solid rgba(0, 0, 0, .125); border-bottom: 1px solid rgba(0, 0, 0, .125);">
     <div class="col text-left p-2 ms-3" id="month">
       <h4>{$WeekCalendar.monthName} {$WeekCalendar.year}</h4>
     </div>
     <div class="col p-2 ms-2">
       <h4>Week {$WeekCalendar.week}</h4>
     </div>
-    <div class="col-auto" style="">
+
+    <div class="col-auto previous-step" style="padding-right: 5px;">
       <button data-date="{$WeekCalendar.prevMonday}" data-view="weekly"
         class="step fa-solid fa-chevron-left fa-2xl m-auto">
       </button>
@@ -16,11 +18,12 @@
         border-radius: 15px;border-color: #a7a7a7;
         color: white;">Today</button>
     </div>
-    <div class="col-auto" style="">
+    <div class="col-auto next-step" style="padding-left: 5px;">
       <button data-date="{$WeekCalendar.nextMonday}" data-view="weekly"
         class="step fa-solid fa-chevron-right fa-2xl m-auto">
       </button>
     </div>
+
   </div>
   <div class="row border-bottom">
 
@@ -68,8 +71,8 @@
               {assign var=events value="events"}
               <div class="h-100 w-100 justify-content-center align-items-center d-flex">
                 <div class="dot" id="dots-{$day.date}"
-                onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div>
-   
+                  onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div>
+
               </div>
 
 
@@ -94,18 +97,17 @@
     {/foreach}
   </div>
 </div>
-<div id="eventsWrap" style="border-top: 1px solid rgba(0, 0, 0, .125);    margin-left: -12px;
-margin-right: -12px;">
+<div id="eventsWrap" style="border-top: 1px solid rgba(0, 0, 0, .125); margin-left: -12px; margin-right: -12px;">
   {foreach from=$WeekCalendar.days item=day}
     {if isset($day.events)}
       <div id="events-{$day.date}" class="d-none dayEvents">
         {foreach from=$day.events item=event}
           <div class="row" style="margin-top: 1rem;">
-            <div class="time col-1" >
+            <div class="time col-1">
               <div class="start">{$event.start}</div>
               <div class="end">{$event.end}</div>
             </div>
-            <div class="col-2" style="border-left: 2px solid #ff5000
+            <div class="col-6" style="border-left: 2px solid #ff5000
             ;">
               <div class="eventTitle">{$event.title}</div>
               <div class="eventDescription">{$event.description}</div>

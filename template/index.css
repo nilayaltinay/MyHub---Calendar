@@ -94,13 +94,14 @@ body {
 
 .day-block {
   aspect-ratio: 1 / .7;
-  font-size: 12px;
+  /* font-size: 14px; */
   /* width: calc(100% / 7) !important; */
 }
 
-@media (min-width:576px) {
+@media (max-width:576px) {
   .day-block {
     font-size: 1rem;
+    aspect-ratio: 1 / .9;
   }
 }
 
@@ -117,9 +118,9 @@ body {
 
 @media (max-width:576px) {
   .today {
-    width: 22px;
-    height: 22px;
-    line-height: 22px;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
   }
 }
 
@@ -136,6 +137,13 @@ body {
   width: 100%;
   border: none;
   background: none;
+}
+
+@media (max-width:576px) {
+  .step {
+    font-size: x-large;
+    padding: 0;
+  }
 }
 
 .dot {
@@ -184,3 +192,19 @@ body {
     margin-left: 30px;
   }
 }
+
+/* .eventsWrap {
+  position: relative;
+  animation: mymove 1s infinite;
+  animation-timing-function: ease;
+}
+
+@keyframes mymove {
+  from {
+    top: 0px;
+  }
+
+  to {
+    top: 100px;
+  }
+} */
