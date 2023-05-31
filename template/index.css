@@ -13,6 +13,10 @@ body {
   font-family: "Montserrat", sans-serif !important;
 }
 
+#calendarView h4 {
+  font-size: 1.2rem;
+}
+
 .container {
   border: 1px solid rgba(0, 0, 0, .125);
   border-bottom: none;
@@ -93,16 +97,42 @@ body {
 }
 
 .day-block {
-  aspect-ratio: 1 / .7;
-  /* font-size: 14px; */
-  /* width: calc(100% / 7) !important; */
+  aspect-ratio: 1 / 0.7;
+  /* font-size: 12px; */
+  width: calc(100% / 7) !important;
+}
+
+@media (max-width:1200px) {
+  .day-block {
+    
+    height: 120px;
+  
+  }
 }
 
 @media (max-width:576px) {
   .day-block {
     font-size: 1rem;
-    aspect-ratio: 1 / .9;
+    aspect-ratio: 1/0.7;
+    height: 70px;
   }
+}
+
+.day-block span {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  border-radius: 50%;
+  text-align: center;
+  aspect-ratio: 1/1;
+  display: block;
+  cursor: pointer;
+}
+
+.day-block span.selected {
+  border: solid 1px #a7a7a7;
+  background: #a7a7a7;
+  color: white;
 }
 
 .today {
@@ -114,14 +144,6 @@ body {
   border-radius: 50%;
   text-align: center;
   aspect-ratio: 1/1;
-}
-
-@media (max-width:576px) {
-  .today {
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
-  }
 }
 
 .weekend {
@@ -139,47 +161,24 @@ body {
   background: none;
 }
 
-@media (max-width:576px) {
-  .step {
-    font-size: x-large;
-    padding: 0;
-  }
-}
-
 .dot {
   content: '';
   background: #ff5000;
-  width: 7px;
-  height: 7px;
+  /* width: 7px;
+  height: 7px; */
   border-radius: 50%;
-  left: 10px;
-  top: 10px;
-  display: inline-block;
-}
-
-.dot::after {
-  background-color: rgb(167 167 167 / 50%);
-  height: 35px;
-  width: 35px;
-  margin-top: -35px;
+  cursor: pointer;
 }
 
 @media (max-width:576px) {
   .dot {
-    width: 5px;
-    height: 5px;
+    /* width: 5px;
+    height: 5px; */
+    display: flex !important;
+    margin-bottom: 2px;
   }
 }
 
-/* #month{
-  padding: 2rem;
-  margin: 3rem;
-}
-@media (max-width:576px) {
-  #month {
-    font-size: 12px;
-  }
-} */
 .time {
   text-align: end;
   display: inline-table;
@@ -193,18 +192,40 @@ body {
   }
 }
 
-/* .eventsWrap {
-  position: relative;
-  animation: mymove 1s infinite;
-  animation-timing-function: ease;
+.monthlyEventTitle {
+  /* border: solid 1px #a7a7a7;
+  border-radius: 15px; */
+  /* margin: 5px; */
+  padding-left: 10px;
+  /* border-left: solid 5px #ff50005e;
+  font-size: 18px; */
+
 }
 
-@keyframes mymove {
-  from {
-    top: 0px;
-  }
+@media (max-width:768px) {
+  .monthlyEventTitle {
+    font-size: 12px;
+    padding-left: 5px;
 
-  to {
-    top: 100px;
   }
-} */
+}
+
+@media (max-width:576px) {
+  .monthlyEventTitle {
+    display: none !important; 
+  }
+}
+@media (max-width:576px) {
+  .monthDayEvents {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+#daily{
+  /* align-items: left; */
+  display: flex;
+  flex-direction: column;
+
+}

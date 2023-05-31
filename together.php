@@ -16,22 +16,47 @@ if (isset($_GET['date'])) {
 // echo "test";
 
 $events = [
-    "2023-05-22" => [
-        ["title" => "event1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
-        ["title" => "event2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
-        ["title" => "event3", "description" => "event3 description", "start" => "18:00", "end" => "18:30"],
+    "2023-05-09" => [
+        ["title" => "event9-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event9-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+        ["title" => "event9-3", "description" => "event3 description", "start" => "16:00", "end" => "16:30"],
     ],
-    "2023-05-23" => [
-        ["title" => "event1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
-        ["title" => "event2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+    "2023-05-10" => [
+        ["title" => "event10-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event10-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
     ],
+    "2023-05-16" => [
+        ["title" => "event16-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event16-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+    ],
+    "2023-05-17" => [
+        ["title" => "event17-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event17-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+    ],
+
     "2023-05-24" => [
-        ["title" => "event1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event24-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event24-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+    ],
+    "2023-05-25" => [
+        ["title" => "event25-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event25-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+    ],
+    "2023-05-30" => [
+        ["title" => "event30-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event30-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+    ],
+    "2023-05-31" => [
+        ["title" => "event31-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event31-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
     ]
 ];
 
 function getCalendar($date)
 {
+
+    global $events;
+
     $today = date('Y-m-d');
     //get the first day of month
     $firstDay = 1;
@@ -62,6 +87,9 @@ function getCalendar($date)
         ];
         if ($today == $day["date"]) {
             $day["today"] = true;
+        }
+        if (isset($events[$day["date"]])) {
+            $day["events"] = $events[$day["date"]];
         }
 
         // check if the day is a weekend day
@@ -130,6 +158,7 @@ function getCalendar($date)
     return $output;
 }
 
+
 //function to get weekly calender
 function getCurrentWeekCalendar($date)
 {
@@ -157,7 +186,6 @@ function getCurrentWeekCalendar($date)
         ];
         if (isset($events[$day["date"]])) {
             $day["events"] = $events[$day["date"]];
-            
         }
         if ($today == $day["date"]) {
             $day["today"] = true;
@@ -193,6 +221,7 @@ function getCurrentWeekCalendar($date)
 
 if (isset($_GET['view']) && $_GET['view'] == 'monthly') {
     $currentMonth = getCalendar($date);
+    $smarty->assign('Events', $events);
     $smarty->assign('MonthCalendar', $currentMonth);
     $smarty->display('monthView.tpl');
     return;

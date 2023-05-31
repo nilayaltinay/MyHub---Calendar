@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-23 04:19:50
+/* Smarty version 4.3.1, created on 2023-05-30 06:22:04
   from '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/weekView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_646c22c6669076_55512149',
+  'unifunc' => 'content_647579ec13e098_25701601',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'e3e86eacc167a2674348822c47be6e026d913490' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/weekView.tpl',
-      1 => 1684808380,
+      1 => 1685420521,
       2 => 'file',
     ),
   ),
@@ -20,11 +20,10 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_646c22c6669076_55512149 (Smarty_Internal_Template $_smarty_tpl) {
+function content_647579ec13e098_25701601 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="calendarView" class="">
-  <div class="row"
-    style="background-color: rgba(0, 0, 0, .03);border-top: 1px solid rgba(0, 0, 0, .125); border-bottom: 1px solid rgba(0, 0, 0, .125);">
-    <div class="col text-left p-2 ms-3" id="month">
+  <div class="row" style="background-color: rgba(0, 0, 0, .03);border: 1px solid rgba(0, 0, 0, .125);">
+    <div class="col text-left p-2 ms-3">
       <h4><?php echo $_smarty_tpl->tpl_vars['WeekCalendar']->value['monthName'];?>
  <?php echo $_smarty_tpl->tpl_vars['WeekCalendar']->value['year'];?>
 </h4>
@@ -33,8 +32,7 @@ function content_646c22c6669076_55512149 (Smarty_Internal_Template $_smarty_tpl)
       <h4>Week <?php echo $_smarty_tpl->tpl_vars['WeekCalendar']->value['week'];?>
 </h4>
     </div>
-
-    <div class="col-auto previous-step" style="padding-right: 5px;">
+    <div class="col-auto" style="">
       <button data-date="<?php echo $_smarty_tpl->tpl_vars['WeekCalendar']->value['prevMonday'];?>
 " data-view="weekly"
         class="step fa-solid fa-chevron-left fa-2xl m-auto">
@@ -45,13 +43,12 @@ function content_646c22c6669076_55512149 (Smarty_Internal_Template $_smarty_tpl)
         border-radius: 15px;border-color: #a7a7a7;
         color: white;">Today</button>
     </div>
-    <div class="col-auto next-step" style="padding-left: 5px;">
+    <div class="col-auto" style="">
       <button data-date="<?php echo $_smarty_tpl->tpl_vars['WeekCalendar']->value['nextMonday'];?>
 " data-view="weekly"
         class="step fa-solid fa-chevron-right fa-2xl m-auto">
       </button>
     </div>
-
   </div>
   <div class="row border-bottom">
 
@@ -64,7 +61,7 @@ function content_646c22c6669076_55512149 (Smarty_Internal_Template $_smarty_tpl)
     <div class="col text-center weekend py-3">Su</div>
 
   </div>
-  <div class="row border-bottom">
+  <div class="daysWrap row border-bottom">
 
     <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['WeekCalendar']->value['days'], 'day');
@@ -75,7 +72,7 @@ $_smarty_tpl->tpl_vars['day']->do_else = false;
       <?php $_smarty_tpl->_assignInScope('today', '');?>
       <?php $_smarty_tpl->_assignInScope('weekend', '');?>
       <?php $_smarty_tpl->_assignInScope('gray', '');?>
-      <?php $_smarty_tpl->_assignInScope('events', "events");?>
+      <?php $_smarty_tpl->_assignInScope('dot', '');?>
 
       <?php if ((isset($_smarty_tpl->tpl_vars['day']->value['today']))) {?>
         <?php $_smarty_tpl->_assignInScope('today', "today");?>
@@ -89,88 +86,71 @@ $_smarty_tpl->tpl_vars['day']->do_else = false;
         <?php $_smarty_tpl->_assignInScope('gray', "gray");?>
       <?php }?>
 
-      <?php if ((isset($_smarty_tpl->tpl_vars['day']->value['events']))) {?>
-        <?php $_smarty_tpl->_assignInScope('events', "events");?>
-      <?php }?>
 
-
-
-      <div class="col p-0" style=" width: calc(100% / 7)">
-        <div class="h-100 w-100 justify-content-center align-items-center d-flex day-block <?php echo $_smarty_tpl->tpl_vars['weekend']->value;?>
+      <div class="col p-0 day-block">
+        <div class="h-100 w-100 justify-content-center align-items-center d-flex flex-column  <?php echo $_smarty_tpl->tpl_vars['weekend']->value;?>
  <?php echo $_smarty_tpl->tpl_vars['gray']->value;?>
 "
           data-date="<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
 ">
           <span class="<?php echo $_smarty_tpl->tpl_vars['today']->value;?>
+" data-date="<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
 "><?php echo $_smarty_tpl->tpl_vars['day']->value['day'];?>
 </span>
-          <div class="row" style="position: absolute;margin-top: 30px;">
-            <?php if ((isset($_smarty_tpl->tpl_vars['day']->value['events'])) && (!(isset($_smarty_tpl->tpl_vars['day']->value['today'])))) {?>
-              <?php $_smarty_tpl->_assignInScope('events', "events");?>
-              <div class="h-100 w-100 justify-content-center align-items-center d-flex">
-                <div class="dot" id="dots-<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
-"
-                  onclick="this.style.backgroundColor = '#a7a7a7'; this.style.color = '#ff5000';"></div>
-
-              </div>
-
-
-              
-            <?php }?>
-
+          <?php if ((isset($_smarty_tpl->tpl_vars['day']->value['events'])) && (!(isset($_smarty_tpl->tpl_vars['day']->value['today'])))) {?>
+            <?php $_smarty_tpl->_assignInScope('dot', "dot");?>
+          <?php }?>
+          <div class="<?php echo $_smarty_tpl->tpl_vars['dot']->value;?>
+" data-date="<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
+" style="width: 7px; height: 7px; margin-top:5px;">
           </div>
-
         </div>
-
-
       </div>
 
     <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
   </div>
-</div>
-<div id="eventsWrap" style="border-top: 1px solid rgba(0, 0, 0, .125); margin-left: -12px; margin-right: -12px;">
-  <?php
+  <div class="eventsWrap" style="border-top: 1px solid rgba(0, 0, 0, .125); margin-left: -12px; margin-right: -12px;">
+    <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['WeekCalendar']->value['days'], 'day');
 $_smarty_tpl->tpl_vars['day']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['day']->value) {
 $_smarty_tpl->tpl_vars['day']->do_else = false;
 ?>
-    <?php if ((isset($_smarty_tpl->tpl_vars['day']->value['events']))) {?>
-      <div id="events-<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
+      <?php if ((isset($_smarty_tpl->tpl_vars['day']->value['events']))) {?>
+        <div id="events-<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
 " class="d-none dayEvents">
-        <?php
+          <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['day']->value['events'], 'event');
 $_smarty_tpl->tpl_vars['event']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['event']->value) {
 $_smarty_tpl->tpl_vars['event']->do_else = false;
 ?>
-          <div class="row" style="margin-top: 1rem;">
-            <div class="time col-1">
-              <div class="start"><?php echo $_smarty_tpl->tpl_vars['event']->value['start'];?>
+                        <div class="row" style="margin-top: 1rem;">
+              <div class="time col-1">
+                <div class="start"><?php echo $_smarty_tpl->tpl_vars['event']->value['start'];?>
 </div>
-              <div class="end"><?php echo $_smarty_tpl->tpl_vars['event']->value['end'];?>
+                <div class="end"><?php echo $_smarty_tpl->tpl_vars['event']->value['end'];?>
 </div>
-            </div>
-            <div class="col-6" style="border-left: 2px solid #ff5000
-            ;">
-              <div class="eventTitle"><?php echo $_smarty_tpl->tpl_vars['event']->value['title'];?>
+              </div>
+              <div class="col-6" style="border-left: 2px solid #ff5000;">
+                <div class="eventTitle"><?php echo $_smarty_tpl->tpl_vars['event']->value['title'];?>
 </div>
-              <div class="eventDescription"><?php echo $_smarty_tpl->tpl_vars['event']->value['description'];?>
+                <div class="eventDescription"><?php echo $_smarty_tpl->tpl_vars['event']->value['description'];?>
 </div>
-            </div>
+              </div>
 
-          </div>
-          <hr>
-        <?php
+            </div>
+            <hr>
+          <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-      </div>
-    <?php }?>
-  <?php
+        </div>
+      <?php }?>
+    <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-</div>
+  </div>
 </div><?php }
 }
