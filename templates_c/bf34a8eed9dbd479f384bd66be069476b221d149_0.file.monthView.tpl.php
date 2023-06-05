@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 4.3.1, created on 2023-05-31 07:20:34
+/* Smarty version 4.3.1, created on 2023-06-05 14:30:06
   from '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/monthView.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '4.3.1',
-  'unifunc' => 'content_6476d922199c65_43471304',
+  'unifunc' => 'content_647dd54e640a65_65914962',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     'bf34a8eed9dbd479f384bd66be069476b221d149' => 
     array (
       0 => '/Applications/XAMPP/xamppfiles/htdocs/mac/degiskenler/MyHub/template/monthView.tpl',
-      1 => 1685510431,
+      1 => 1685926097,
       2 => 'file',
     ),
   ),
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_6476d922199c65_43471304 (Smarty_Internal_Template $_smarty_tpl) {
+function content_647dd54e640a65_65914962 (Smarty_Internal_Template $_smarty_tpl) {
 ?><div id="calendarView" class="">
     <div class="row" style="background-color: rgba(0, 0, 0, .03);border: 1px solid rgba(0, 0, 0, .125);">
         <div class="col text-left p-2 ms-3">
@@ -105,31 +105,92 @@ $_smarty_tpl->tpl_vars['day']->do_else = false;
                         <?php $_smarty_tpl->_assignInScope('dot', "dot");?>
                         
                                                 <?php $_smarty_tpl->_assignInScope('events', array());?>
+
                         <div id="events-<?php echo $_smarty_tpl->tpl_vars['event']->value;?>
 " data-date="<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
-" class="monthDayEvents">
+" class="dayEvents" style="display: contents;">
                             <?php
 $_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['day']->value['events'], 'dayEvent');
 $_smarty_tpl->tpl_vars['dayEvent']->do_else = true;
 if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['dayEvent']->value) {
 $_smarty_tpl->tpl_vars['dayEvent']->do_else = false;
 ?>
+
                                 
-                                <div class="col-12" style="display: inline-flex;align-items: center; margin-left:5px;" >
-                                <div class="<?php echo $_smarty_tpl->tpl_vars['dot']->value;?>
+                                <!-- DOT trigger modal -->
+                                <div class="col-12"
+                                    style="display: inline-flex;align-items: center; margin-left:5px; cursor: pointer;"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <div class="<?php echo $_smarty_tpl->tpl_vars['dot']->value;?>
 " data-date="<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
-"
-                                style="width: 7px; height: 7px; "></div>
-                                
-                                <div class="monthlyEventTitle" data-date="<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
-" >
-                                <?php echo $_smarty_tpl->tpl_vars['dayEvent']->value['title'];?>
+" style="width: 7px; height: 7px; ">
+                                    </div>
+                                    <div class="monthlyEventTitle" data-date="<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
+">
+                                        <?php echo $_smarty_tpl->tpl_vars['dayEvent']->value['title'];?>
 
+                                    </div>
                                 </div>
-                                </div>
-                                
 
-                                
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel"><?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
+</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <!-- Events -->
+                                                <?php if ((isset($_smarty_tpl->tpl_vars['day']->value['events']))) {?>
+                                                    <?php $_smarty_tpl->_assignInScope('events', array());?>
+
+                                                    <div id="events-<?php echo $_smarty_tpl->tpl_vars['day']->value['date'];?>
+" class="dayEvents">
+                                                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['day']->value['events'], 'event');
+$_smarty_tpl->tpl_vars['event']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['event']->value) {
+$_smarty_tpl->tpl_vars['event']->do_else = false;
+?>
+                                                            
+                                                                                                                        <div class="row" style="margin-top: 1rem;">
+                                                                <div class="time col-1">
+                                                                    <div class="start"><?php echo $_smarty_tpl->tpl_vars['event']->value['start'];?>
+</div>
+                                                                    <div class="end"><?php echo $_smarty_tpl->tpl_vars['event']->value['end'];?>
+</div>
+                                                                </div>
+                                                                <div class="col-6" style="border-left: 2px solid #ff5000;">
+                                                                    <div class="eventTitle"><?php echo $_smarty_tpl->tpl_vars['event']->value['title'];?>
+</div>
+                                                                    <div class="eventDescription"><?php echo $_smarty_tpl->tpl_vars['event']->value['description'];?>
+</div>
+                                                                </div>
+
+                                                            </div>
+                                                            <hr>
+                                                        <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                                                    </div>
+                                                <?php }?>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                             <?php
 }
 $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
@@ -211,5 +272,15 @@ $_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
         </div>
 
     </div>
-</div><?php }
+</div>
+
+<?php echo '<script'; ?>
+>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        }) <
+script ><?php }
 }

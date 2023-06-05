@@ -72,20 +72,77 @@
                         {* {foreach from=$events item=event}
                         {/foreach} *}
                         {assign var="events" value=[] }
-                        <div id="events-{$event}" data-date="{$day.date}" class="monthDayEvents">
-                            {foreach from=$day.events item=dayEvent}
-                                
-                                <div class="col-12" style="display: inline-flex;align-items: center; margin-left:5px;" >
-                                <div class="{$dot}" data-date="{$day.date}"
-                                style="width: 7px; height: 7px; "></div>
-                                
-                                <div class="monthlyEventTitle" data-date="{$day.date}" >
-                                {$dayEvent.title}
-                                </div>
-                                </div>
-                                
 
-                                
+                        <div id="events-{$event}" data-date="{$day.date}" class="dayEvents" style="display: contents;">
+                            {foreach from=$day.events item=dayEvent}
+
+                                {* <div class="{$dot}" data-date="{$day.date}" style="width: 7px; height: 7px; ">
+                                    </div>
+
+                                    <div class="monthlyEventTitle" data-date="{$day.date}">
+                                        {$dayEvent.title}
+                                    </div> *}
+
+                                <!-- DOT trigger modal -->
+                                <div class="col-12"
+                                    style="display: inline-flex;align-items: center; margin-left:5px; cursor: pointer;"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                    <div class="{$dot}" data-date="{$day.date}" style="width: 7px; height: 7px; ">
+                                    </div>
+                                    <div class="monthlyEventTitle" data-date="{$day.date}">
+                                        {$dayEvent.title}
+                                    </div>
+                                </div>
+
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                    aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h1 class="modal-title fs-5" id="exampleModalLabel">{$day.date}</h1>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <!-- Events -->
+                                                {if isset($day.events)}
+                                                    {assign var="events" value=[] }
+
+                                                    <div id="events-{$day.date}" class="dayEvents">
+                                                        {foreach from=$day.events item=event}
+                                                            
+                                                            {* <div>
+                                                          {$event.title}
+                                                        </div> *}
+                                                            <div class="row" style="margin-top: 1rem;">
+                                                                <div class="time col-1">
+                                                                    <div class="start">{$event.start}</div>
+                                                                    <div class="end">{$event.end}</div>
+                                                                </div>
+                                                                <div class="col-6" style="border-left: 2px solid #ff5000;">
+                                                                    <div class="eventTitle">{$event.title}</div>
+                                                                    <div class="eventDescription">{$event.description}</div>
+                                                                </div>
+
+                                                            </div>
+                                                            <hr>
+                                                        {/foreach}
+                                                    </div>
+                                                {/if}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-bs-dismiss="modal">Close</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                             {/foreach}
                         </div>
 
@@ -146,3 +203,12 @@
 
     </div>
 </div>
+
+<script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        }) <
+script >

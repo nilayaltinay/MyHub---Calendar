@@ -49,7 +49,19 @@ $events = [
     "2023-05-31" => [
         ["title" => "event31-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
         ["title" => "event31-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
-    ]
+    ],
+    "2023-06-05" => [
+        ["title" => "event5-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event5-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+    ],
+    "2023-06-07" => [
+        ["title" => "event7-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+    ],
+    "2023-06-13" => [
+        ["title" => "event13-1", "description" => "event1 description", "start" => "13:00", "end" => "13:30"],
+        ["title" => "event13-2", "description" => "event2 description", "start" => "16:00", "end" => "16:30"],
+        ["title" => "event13-3", "description" => "event3 description", "start" => "16:00", "end" => "16:30"],
+    ],
 ];
 
 function getCalendar($date)
